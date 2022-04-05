@@ -14,7 +14,8 @@ namespace SofaAppen
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            MainPage = new AppShell(); // This is from the original code and may be needed to be changed back to this when the app is finished
+            //MainPage = new Views.HomePage();
         }
 
         protected override void OnStart()

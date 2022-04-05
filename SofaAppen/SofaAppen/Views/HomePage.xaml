@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SofaAppen.Views.HomePage"
+             xmlns:vm="clr-namespace:SofaAppen.ViewModels"
+             Title="{Binding Title}">
+    <!--<ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms! Du er på din HomePage"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>-->
+
+    <ContentPage.BindingContext>
+        <vm:HomePageViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#e9f4ef</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" Margin="0,0,0,-10">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                    <Image Source="zoo_logo.png" VerticalOptions="Center" HeightRequest="64" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <StackLayout BackgroundColor="#74b694" Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                <Label Text="Velkommen til København Zoo" FontSize="Title" TextColor="#0f403d"/>
+                <Label Text="Vores park tilbyder et væld af gode oplevelser og en rig dyreverden i vores zoologiske have." FontSize="16" Padding="0,0,0,0" TextColor="#0f403d"/>
+                <Label Text="Tak for at dowloade vores app. Med denne app kan du udvide din oplevelse gennem vores park og få et større indblik på vores dyr og andet nyttigt info om parken" FontSize="16" Padding="0,0,0,0" TextColor="#0f403d"/>
+                <Label FontSize="16" Padding="0,24,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Se mere på "/>
+                                <Span Text="https://www.zoo.dk/s/?language=da" FontAttributes="Bold"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

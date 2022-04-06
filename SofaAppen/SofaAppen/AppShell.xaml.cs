@@ -14,7 +14,7 @@ namespace SofaAppen
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
             Routing.RegisterRoute(nameof(AnimalsPage), typeof(AnimalsPage));
-            Routing.RegisterRoute("Animals/detail", typeof(AnimalDetailPage));
+            Routing.RegisterRoute("animals/details", typeof(AnimalDetailPage));
 
         }
 

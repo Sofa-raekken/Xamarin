@@ -27,7 +27,7 @@ namespace SofaAppen.ViewModels
 
         public async Task NavigateToDetailPage()
         {
-            await Shell.Current.GoToAsync($"detail?animalId={Animal.Id}");
+            await Shell.Current.GoToAsync($"animals/details?animalId={Animal.Id}");
         }
 
         private async Task InitAsync()

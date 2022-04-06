@@ -7,6 +7,10 @@ namespace SofaAppen.Models
 {
     public class Animal
     {
+        public Animal()
+        {
+
+        }
         [JsonProperty(PropertyName = "idAnimal")]
         public int Id { get; }
 
@@ -36,5 +40,21 @@ namespace SofaAppen.Models
 
         [JsonProperty(PropertyName = "qr")]
         public string QR { get;set; }
+
+        [JsonConstructor]
+        public Animal(int id, string name, string lationName, string description, string weight, string lifeExpectancy, string pregnancy, string height, string birthWeight, string qR)
+        {
+            Id = id;
+            Name = name;
+            LationName = lationName;
+            Description = description;
+            Weight = weight;
+            LifeExpectancy = lifeExpectancy;
+            Pregnancy = pregnancy;
+            Height = height;
+            BirthWeight = birthWeight;
+            QR = qR;
+        }
+
     }
 }

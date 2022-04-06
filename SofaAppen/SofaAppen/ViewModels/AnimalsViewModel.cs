@@ -20,8 +20,14 @@ namespace SofaAppen.ViewModels
         public AnimalsViewModel()
         {
             _animals = new List<Animal>();
-
+            ShowAnimal = new Command(async () => { await NavigateToDetailPage(); });
             Task.Run(async () => { await InitAsync(); });
+            
+        }
+
+        public async Task NavigateToDetailPage()
+        {
+            await Shell.Current.GoToAsync($"detail?animalId={Animal.Id}");
         }
 
         private async Task InitAsync()
@@ -31,6 +37,7 @@ namespace SofaAppen.ViewModels
         public async Task GetAnimals()
         {
             Animals = await Api.GetAnimals();
+
         }
     }
 }

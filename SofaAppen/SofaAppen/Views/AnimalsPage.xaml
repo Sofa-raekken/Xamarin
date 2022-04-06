@@ -1,27 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="SofaAppen.Views.AnimalsPage">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Animals!"
                 VerticalOptions="Start" 
                 HorizontalOptions="CenterAndExpand" />
-            <CollectionView x:Name="AnimalView" ItemsSource="{Binding Animals}" SelectionMode="Single" SelectedItem="{Binding Animal}" SelectionChangedCommand="{Binding ShowAnimal}">
-                <!--SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference ExerciseCollection}}"-->
+            <CollectionView x:Name="AnimalView" ItemsSource="{Binding Animals}" SelectionMode="Single" SelectedItem="{Binding Animal}" SelectionChangedCommand="{Binding ShowAnimal}" SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference AnimalView}}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame>
+                            <Label Text="{Binding Name}"></Label>
+                            <!--
                             <StackLayout>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <StackLayout Grid.Column="0" HorizontalOptions="Start" Orientation="Vertical">
-                                        <Label Text="{Binding Name}"></Label>
-                                    </StackLayout>
-                                </Grid>
                             </StackLayout>
+                            -->
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

@@ -11,6 +11,8 @@ namespace SofaAppen.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IApiClient Api => DependencyService.Get<IApiClient>();
+
 
         bool isBusy = false;
         public bool IsBusy

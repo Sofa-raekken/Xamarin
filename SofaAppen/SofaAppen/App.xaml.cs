@@ -14,6 +14,8 @@ namespace SofaAppen
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+            DependencyService.Register<IApiClient>();
+
             MainPage = new AppShell();
         }
 

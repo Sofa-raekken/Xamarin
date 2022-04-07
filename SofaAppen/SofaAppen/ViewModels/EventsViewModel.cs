@@ -20,11 +20,10 @@ namespace SofaAppen.ViewModels
 
         public EventsViewModel()
         {
-
             _events = new List<Event>();
             IsError = false;
             Title = "Begivenheder";
-            Task.Run(async () => { await InitAsync(); });
+            Task.Run(async () => { await InitAsync(); IsBusy = false; });
         }
 
         private async Task InitAsync()
@@ -36,6 +35,7 @@ namespace SofaAppen.ViewModels
         {
             try
             {
+                IsBusy = true;
                 Events = await Api.GetEvents();
 
             }

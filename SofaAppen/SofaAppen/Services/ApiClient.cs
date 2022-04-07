@@ -47,9 +47,9 @@ namespace SofaAppen.Services
 
             resp.EnsureSuccessStatusCode();
 
-            var data = await resp.Content.ReadAsStringAsync();
+            var jsonString = await resp.Content.ReadAsStringAsync();
 
-            List<Event> events = JsonConvert.DeserializeObject<List<Event>>(data);
+            List<Event> events = JsonConvert.DeserializeObject<List<Event>>(jsonString);
 
             return events;
         }

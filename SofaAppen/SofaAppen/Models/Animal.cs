@@ -54,6 +54,11 @@ namespace SofaAppen.Models
             Height = height;
             BirthWeight = birthWeight;
             QR = qR;
+        }    
+        public Animal(int id, string name)
+        {
+            Id = id;
+            Name = name;
         }
 
     }

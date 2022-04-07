@@ -17,6 +17,7 @@ namespace SofaAppen.Views
         {
             InitializeComponent();
             this.BindingContext = new EventsViewModel();
+            this.Title = "Begivenheder";
         }
     }
 }

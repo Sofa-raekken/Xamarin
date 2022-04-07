@@ -1,28 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:vm="clr-namespace:SofaAppen.ViewModels" xmlns:Helpers="clr-namespace:SofaAppen.Helpers"
+             xmlns:vm="clr-namespace:SofaAppen.ViewModels" 
+             	
+             xmlns:Helpers="clr-namespace:SofaAppen.Helpers"
              x:Class="SofaAppen.Views.EventsPage">
 
     <ContentPage.BindingContext>
         <vm:EventsViewModel />
     </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <Helpers:InverseBoolConverter x:Key="InverseBoolConverter"/>
+        <Helpers:IndexToColorConverter x:Key="IndexToColorConverterGrid"
+                                          EvenColor="#74b694"
+                                          OddColor="#e9f4ef"/>
+
+        <Helpers:IndexToColorConverter x:Key="IndexToColorConverterText"
+                                          EvenColor="#0f403d"
+                                          OddColor="#0f403d"/>
+    </ContentPage.Resources>
     
     <ContentPage.Content>
         <StackLayout>
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
             <Label IsVisible="{Binding IsError}">Der skete en fejl</Label>
-            <CollectionView x:Name="EventView" ItemsSource="{Binding Events}" SelectionMode="Single" SelectedItem="{Binding SelectedEvent}" SelectionChangedCommand="{Binding ShowAnimal}" IsVisible="{Binding IsError, Converter={Helpers:InverseBoolConverter}}">
+            <CollectionView x:Name="EventView" ItemsSource="{Binding Events}" SelectionMode="Single" SelectedItem="{Binding SelectedEvent}" IsVisible="{Binding IsError, Converter={StaticResource InverseBoolConverter}}">
                 <!--SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference ExerciseCollection}}"-->
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame>
+                        <Frame BackgroundColor="{Binding ., Converter={StaticResource IndexToColorConverterGrid},ConverterParameter={x:Reference EventView}}">
                             <StackLayout>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <StackLayout Grid.Column="0" HorizontalOptions="Start" Orientation="Vertical">
-                                        <Label Text="{Binding Name}"></Label>
+                                        <Label FontAttributes="Bold" Text="{Binding Name}" TextColor="{Binding ., Converter={StaticResource IndexToColorConverterText},ConverterParameter={x:Reference EventView}}"></Label>
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="1" HorizontalOptions="End" Orientation="Vertical">
+                                        <Label>Læse mere</Label>
                                     </StackLayout>
                                 </Grid>
                             </StackLayout>
@@ -30,6 +48,7 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

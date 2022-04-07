@@ -16,7 +16,6 @@ namespace SofaAppen.Helpers
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return value;
-            //throw new NotImplementedException();
         }
     }
 }

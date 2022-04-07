@@ -12,16 +12,16 @@ namespace SofaAppen.Models
         public int IdEvent { get; set; }
 
         [JsonProperty("name")]
-        public int Name { get; set; }
+        public string Name { get; set; }
 
         [JsonProperty("description")]
-        public int Description { get; set; }
+        public string Description { get; set; }
 
         [JsonProperty("animals")]
-        public List<EventAnimal> Animals { get; set; }
+        public List<Animal> Animals { get; set; }
 
         [JsonConstructor]
-        public Event(int idEvent, int name, int description, List<EventAnimal> animals)
+        public Event(int idEvent, string name, string description, List<Animal> animals)
         {
             IdEvent = idEvent;
             Name = name;

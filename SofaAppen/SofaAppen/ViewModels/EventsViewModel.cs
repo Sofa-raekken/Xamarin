@@ -15,10 +15,16 @@ namespace SofaAppen.ViewModels
 
         public Event SelectedEvent { get; set; }
 
+        private bool _isError;
+        public bool IsError { get { return _isError;  } set { _isError = value; OnPropertyChanged(); } }
+
         public EventsViewModel()
         {
+
+            _events = new List<Event>();
+            IsError = false;
             Title = "Begivenheder";
-            Task.Run(async () => { await GetEvents(); });
+            Task.Run(async () => { await InitAsync(); });
         }
 
         private async Task InitAsync()
@@ -28,7 +34,17 @@ namespace SofaAppen.ViewModels
 
         private async Task GetEvents()
         {
-            Events = await Api.GetEvents();
+            try
+            {
+                Events = await Api.GetEvents();
+
+            }
+            catch (Exception e)
+            {
+
+                IsError = true;
+            }
+
         }
     }
 }

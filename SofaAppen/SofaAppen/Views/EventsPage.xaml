@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:vm="clr-namespace:SofaAppen.ViewModels"
+             xmlns:vm="clr-namespace:SofaAppen.ViewModels" xmlns:Helpers="clr-namespace:SofaAppen.Helpers"
              x:Class="SofaAppen.Views.EventsPage">
 
     <ContentPage.BindingContext>
@@ -10,7 +10,8 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <CollectionView x:Name="EventView" ItemsSource="{Binding Events}" SelectionMode="Single" SelectedItem="{Binding SelectedEvent}" SelectionChangedCommand="{Binding ShowAnimal}">
+            <Label IsVisible="{Binding IsError}">Der skete en fejl</Label>
+            <CollectionView x:Name="EventView" ItemsSource="{Binding Events}" SelectionMode="Single" SelectedItem="{Binding SelectedEvent}" SelectionChangedCommand="{Binding ShowAnimal}" IsVisible="{Binding IsError, Converter={Helpers:InverseBoolConverter}}">
                 <!--SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference ExerciseCollection}}"-->
                 <CollectionView.ItemTemplate>
                     <DataTemplate>

@@ -43,8 +43,7 @@ namespace SofaAppen.Services
 
         public async Task<List<Event>> GetEvents()
         {
-            string path = "https://sofaapi.azurewebsites.net/events";
-            HttpResponseMessage resp = await client.GetAsync(path);
+            HttpResponseMessage resp = await client.GetAsync("https://sofaapi.azurewebsites.net/events");
 
             resp.EnsureSuccessStatusCode();
 

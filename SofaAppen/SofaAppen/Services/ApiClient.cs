@@ -14,7 +14,7 @@ namespace SofaAppen.Services
 
         public async Task<List<Animal>> GetAnimals()
         {
-            HttpResponseMessage response = await client.GetAsync("https://sofaapi.azurewebsites.net/animals");
+            HttpResponseMessage response = await client.GetAsync("https://sofaapi.azurewebsites.net/animals/");
 
             response.EnsureSuccessStatusCode();
 
@@ -36,9 +36,9 @@ namespace SofaAppen.Services
 
             string jsonString = await response.Content.ReadAsStringAsync();
 
-            Animal program = JsonConvert.DeserializeObject<Animal>(jsonString);
+            Animal animal = JsonConvert.DeserializeObject<Animal>(jsonString);
 
-            return program;
+            return animal;
         }
 
         public async Task<List<Event>> GetEvents()

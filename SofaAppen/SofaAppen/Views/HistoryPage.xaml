@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SofaAppen.Views.HistoryPage"
+             xmlns:vm="clr-namespace:SofaAppen.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:HistoryPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#e9f4ef</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" Margin="0,0,0,-10">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,0,0,0" VerticalOptions="FillAndExpand">
+                    <Image Source="zoo_tower.png" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <StackLayout BackgroundColor="#74b694" Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                <Label FontSize="Title" TextColor="#0f403d" Text="Vores parks historie"/>
+                <Label FontSize="Medium" Padding="0,0,0,0" TextColor="#0f403d" HorizontalTextAlignment="Start"
+                       Text="København Zoo blev grundlagt af Niels Kjærbølling i 1859. Han fik af Overdirektoratet for de Kongelige Haver overdraget Prinsesse Vilhelmines Have som omfattede omtrent det område der i dag er dækket af Zoologisk Haves restauranter (bygget 1899) og den store forplads, samt en del af løvernes nuværende anlæg på den ene side og storkenes på den anden. Den var indhegnet af et plankeværk. Haven havde en pavillon med et konditori og en udstilling af udstoppede fugle. 1861 også Prinsesse Carolines Have indlemmet i haven, området ligger til højre herfor, ved Zoos nuværende hovedindgang, sammen området hvor tårnet og fuglesøen ligger. I 1867 blev en del af frugttræplanteskolen, Sallys Planteskole i Brune Dyrehave indlemmet, og i i 1872-1873 efter at Zooet overgik til at være til et aktieselskab 1872, blev den i 1873 yderligere udvidet med resten af brune Dyrehave på Frederiksberg.[3] Derefter omfattede zooet hele det nuværende område nord for Roskildevej. Denne størrelse havde haven indtil 1953, hvor afdelingen i Søndermarken blev åbnet.
+                       "/>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

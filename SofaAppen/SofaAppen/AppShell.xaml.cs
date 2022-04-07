@@ -13,6 +13,9 @@ namespace SofaAppen
             InitializeComponent();
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            Routing.RegisterRoute(nameof(AnimalsPage), typeof(AnimalsPage));
+            Routing.RegisterRoute("animals/details", typeof(AnimalDetailPage));
+
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

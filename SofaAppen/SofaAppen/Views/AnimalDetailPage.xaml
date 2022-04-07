@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SofaAppen.Views.AnimalDetailPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame>
+                <Label Text="{Binding Animal.Name}"
+                HorizontalOptions="CenterAndExpand" FontSize="Title" />
+            </Frame>
+            <Frame>
+                <Label Text="{Binding Animal.Description}">
+                    
+                </Label> 
+            </Frame>
+            <Frame>
+                <Label Text="{Binding Animal.Weight}">
+
+                </Label>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

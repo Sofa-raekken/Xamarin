@@ -4,9 +4,20 @@
              x:Class="SofaAppen.Views.AnimalDetailPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Frame>
+                <Label Text="{Binding Animal.Name}"
+                HorizontalOptions="CenterAndExpand" FontSize="Title" />
+            </Frame>
+            <Frame>
+                <Label Text="{Binding Animal.Description}">
+                    
+                </Label> 
+            </Frame>
+            <Frame>
+                <Label Text="{Binding Animal.Weight}">
+
+                </Label>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

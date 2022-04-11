@@ -96,7 +96,9 @@
     <FlyoutItem Title="Historie" Icon="icon_feed.png">
         <ShellContent Route="HistoryPage" ContentTemplate="{DataTemplate local:HistoryPage}" />
     </FlyoutItem>
-
+    <FlyoutItem Title="Qr Scan" Icon="icon_feed.png">
+        <ShellContent Route="QRScannerPage" ContentTemplate="{DataTemplate local:QRScannerPage}" />
+    </FlyoutItem>
 
     <!--
         TabBar lets you define content that won't show up in a flyout menu. When this content is active

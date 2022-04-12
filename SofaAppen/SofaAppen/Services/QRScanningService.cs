@@ -1,5 +1,4 @@
-﻿using SofaAppen.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +17,7 @@ namespace SofaAppen.Services
             var optionsCustom = new MobileBarcodeScanningOptions();
             optionsCustom.UseNativeScanning = true;
 
-            var scanner = new MobileBarcodeScanner()
+            MobileBarcodeScanner scanner = new MobileBarcodeScanner()
             {
                 TopText = "Scan the QR Code",
                 BottomText = "Come closer to the QR kode",

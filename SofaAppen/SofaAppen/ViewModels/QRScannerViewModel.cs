@@ -7,15 +7,17 @@ namespace SofaAppen.ViewModels
 {
     public class QRScannerViewModel : BaseViewModel
     {
+        public Command QrScanCommand { get; set; }
         public IQRScanningService Scanner { get; }
         public QRScannerViewModel()
         {
             Scanner = DependencyService.Get<IQRScanningService>();
 
-            InitQRScan();
+            QrScanCommand = new Command(async () => { await InitQRScan(); });
+
         }
 
-        private async void InitQRScan()
+        private async Task InitQRScan()
         {
             try
             {

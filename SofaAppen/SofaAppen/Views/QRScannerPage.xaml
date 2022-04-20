@@ -9,8 +9,10 @@
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <StackLayout Spacing="10">
-           
+        <StackLayout Spacing="10" VerticalOptions="Center">
+            <Button Text="Tryk her for at scanne QR Koder" Command="{Binding QrScanCommand}">
+                
+            </Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

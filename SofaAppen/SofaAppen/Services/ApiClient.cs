@@ -53,5 +53,18 @@ namespace SofaAppen.Services
 
             return events;
         }
+
+        public async Task<List<Category>> GetCategories()
+        {
+            HttpResponseMessage resp = await client.GetAsync("https://sofaapi.azurewebsites.net/categories");
+
+            resp.EnsureSuccessStatusCode();
+
+            var jsonString = await resp.Content.ReadAsStringAsync();
+
+            List<Category> categories = JsonConvert.DeserializeObject<List<Category>>(jsonString);
+
+            return categories;
+        }
     }
 }

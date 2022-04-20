@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:SofaAppen.ViewModels"
+             x:Class="SofaAppen.Views.FeedbackPage"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:FeedbackViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#e9f4ef</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        
+        <StackLayout Grid.Row="0" BackgroundColor="#74b694" Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+            <Label Text="Fortæl os din mening" FontSize="Title" TextColor="#0f403d"/>
+            <Label Text="Feedback tekst" FontSize="16" Padding="0,0,0,0" TextColor="#0f403d"/>
+            <!--<Label x:Name="selectedRating" TextColor="#0f403d"/>-->
+            <Picker x:Name="categoryPicker" FontSize="Large" Title="Vælg category" TextColor="#0f403d"/>
+            <Picker x:Name="ratingPicker" FontSize="Large" Title="Vælg bedømmelse" TextColor="#0f403d"/>
+            <Editor x:Name="editor" Placeholder="Kommentar" PlaceholderColor="#0f403d" BackgroundColor="White" HeightRequest="200" MaxLength="250"/>
+        </StackLayout>
+            <ScrollView Grid.Row="1">
+            <StackLayout BackgroundColor="Blue" Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                <Label Text="Feedback overskrift" FontSize="Title" TextColor="#0f403d"/>
+                <Label Text="Feedback tekst" FontSize="16" Padding="0,0,0,0" TextColor="#0f403d"/>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

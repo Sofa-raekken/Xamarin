@@ -8,15 +8,33 @@
                 <Label Text="{Binding Animal.Name}"
                 HorizontalOptions="CenterAndExpand" FontSize="Title" />
             </Frame>
-            <Frame>
-                <Label Text="{Binding Animal.Description}">
-                    
-                </Label> 
+            <Frame BackgroundColor="#74b694">
+                <Label FontSize="Medium" Text="{Binding Animal.Description}" TextColor="White"/>
             </Frame>
-            <Frame>
-                <Label Text="{Binding Animal.Weight}">
-
+            <Frame BackgroundColor="#e9f4ef" >
+                <Label FontSize="Medium" Margin="10" HorizontalTextAlignment="Left" Text="{Binding Animal.Weight, StringFormat='Dyrets vægt: {0}'}" TextColor="#0f403d">
                 </Label>
+            </Frame>
+            <Frame BackgroundColor="#74b694">
+                <Label FontSize="Medium" Text="{Binding Animal.LifeExpectancy, StringFormat='Levetid: {0}'}" TextColor="White"/>
+            </Frame>
+            <Frame BackgroundColor="#e9f4ef" >
+                <StackLayout>
+                    <Label FontSize="Medium"  HorizontalTextAlignment="Left" Text="{Binding Animal.Pregnancy, StringFormat='Dyrets er gratid i {0} og vejer'}" TextColor="#0f403d">
+                    </Label>
+                    <Label FontSize="Medium"  HorizontalTextAlignment="Left" Text="{Binding Animal.BirthWeight, StringFormat=' {0} som nyfødt'}" TextColor="#0f403d">
+                    </Label>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="#74b694">
+                <Label FontSize="Medium" Text="{Binding Animal.Height, StringFormat='Dyrets størrelse: {0}'}" TextColor="White"/>
+            </Frame>
+            <Frame BackgroundColor="#e9f4ef" >
+                <Label FontSize="Medium" Margin="10" HorizontalTextAlignment="Left" Text="{Binding Animal.Weight, StringFormat='Dyrets vægt: {0}'}" TextColor="#0f403d">
+                </Label>
+            </Frame>
+            <Frame BackgroundColor="#74b694">
+                <Label FontSize="Medium" Text="{Binding Animal.LifeExpectancy, StringFormat='Levetid: {0}'}" TextColor="White"/>
             </Frame>
         </StackLayout>
     </ContentPage.Content>

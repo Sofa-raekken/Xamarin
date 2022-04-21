@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace SofaAppen.ViewModels
 {
@@ -13,7 +14,11 @@ namespace SofaAppen.ViewModels
 
         public List<Event> Events { get { return _events; } set { _events = value; OnPropertyChanged(); } }
 
-        public Event SelectedEvent { get; set; }
+        private Event _event;
+
+        public Event Event { get { return _event; } set { _event = value; OnPropertyChanged(); } }
+
+        public Command SelectedEvent { get; set; }
 
         private bool _isError;
         public bool IsError { get { return _isError;  } set { _isError = value; OnPropertyChanged(); } }
@@ -23,12 +28,18 @@ namespace SofaAppen.ViewModels
             _events = new List<Event>();
             IsError = false;
             Title = "Begivenheder";
+            SelectedEvent = new Command(async () => { await NavigateToDetailPage(); });
             Task.Run(async () => { await InitAsync(); IsBusy = false; });
         }
 
         private async Task InitAsync()
         {
            await GetEvents();
+        }
+
+        public async Task NavigateToDetailPage()
+        {
+            await Shell.Current.GoToAsync($"events/details?animalId={Event.IdEvent}");
         }
 
         private async Task GetEvents()

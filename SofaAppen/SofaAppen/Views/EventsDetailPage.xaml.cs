@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SofaAppen.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace SofaAppen.Views
         public EventsDetailPage()
         {
             InitializeComponent();
+            this.BindingContext = new EventDetailViewModel();
+            this.Title = "Event";
         }
     }
 }

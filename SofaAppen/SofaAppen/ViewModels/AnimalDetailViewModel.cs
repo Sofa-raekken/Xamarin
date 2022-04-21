@@ -22,11 +22,11 @@ namespace SofaAppen.ViewModels
             int intanimalId;
             if (int.TryParse(animalId, out intanimalId))
             {
-                GetExerciseDetail(intanimalId);
+                GetAnimalDetail(intanimalId);
 
             }
         }
-        public async void GetExerciseDetail(int animalId)
+        public async void GetAnimalDetail(int animalId)
         {
             Animal = await Api.GetAnimal(animalId);
         }

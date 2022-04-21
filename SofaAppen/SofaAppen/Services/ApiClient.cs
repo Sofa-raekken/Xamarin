@@ -53,5 +53,19 @@ namespace SofaAppen.Services
 
             return events;
         }
+        public async Task<Event> GetEvent(int id)
+        {
+            string URI = string.Format("https://sofaapi.azurewebsites.net/events/{0}", id);
+
+            HttpResponseMessage resp = await client.GetAsync(URI);
+
+            resp.EnsureSuccessStatusCode();
+
+            var jsonString = await resp.Content.ReadAsStringAsync();
+
+            Event events = JsonConvert.DeserializeObject<Event>(jsonString);
+
+            return events;
+        }
     }
 }

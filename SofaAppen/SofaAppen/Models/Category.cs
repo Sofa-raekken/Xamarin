@@ -10,7 +10,7 @@ namespace SofaAppen.Models
         [JsonProperty("idCategory")]
         public int IdCategory { get; set; }
 
-        [JsonProperty("category")]
+        [JsonProperty("categoryName")]
         public string CategoryName { get; set; }
 
         [JsonConstructor]

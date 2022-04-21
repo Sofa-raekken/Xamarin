@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SofaAppen.ViewModels;
 
 namespace SofaAppen.Views
 {
@@ -15,10 +16,14 @@ namespace SofaAppen.Views
         public FeedbackPage()
         {
             InitializeComponent();
+            this.BindingContext = new FeedbackViewModel();
+            this.Title = "Feedback";
 
             var categoryList = new List<string>();
             categoryList.Add("a");
             categoryList.Add("b");
+
+
 
             var ratingList = new List<string>();
             ratingList.Add("1");
@@ -26,12 +31,10 @@ namespace SofaAppen.Views
             ratingList.Add("3");
             ratingList.Add("4");
             ratingList.Add("5");
-            ratingList.Add("6");
 
-            categoryPicker.ItemsSource = categoryList;
+            //categoryPicker.ItemsSource = categoryList;
             ratingPicker.ItemsSource = ratingList;
-
-            //selectedRating.SetBinding(Label.TextProperty, new Binding("SelectedItem", source: picker));
+            selectedRating.SetBinding(Label.TextProperty, new Binding("SelectedItem", source: ratingPicker));
         }
     }
 }

@@ -41,6 +41,17 @@ namespace SofaAppen.Services
             return animal;
         }
 
-        
+        public async Task<List<Event>> GetEvents()
+        {
+            HttpResponseMessage resp = await client.GetAsync("https://sofaapi.azurewebsites.net/events");
+
+            resp.EnsureSuccessStatusCode();
+
+            var jsonString = await resp.Content.ReadAsStringAsync();
+
+            List<Event> events = JsonConvert.DeserializeObject<List<Event>>(jsonString);
+
+            return events;
+        }
     }
 }

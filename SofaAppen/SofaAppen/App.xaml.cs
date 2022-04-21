@@ -15,6 +15,7 @@ namespace SofaAppen
 
             DependencyService.Register<MockDataStore>();
             DependencyService.Register<ApiClient>();
+            DependencyService.Register<QrScanningService>();
 
             MainPage = new AppShell();
         }

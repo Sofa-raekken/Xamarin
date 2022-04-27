@@ -25,7 +25,7 @@
         <StackLayout>
             <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
             <Label IsVisible="{Binding IsError}">Der skete en fejl</Label>
-            <CollectionView x:Name="EventView" ItemsSource="{Binding Events}" SelectionMode="Single" SelectionChangedCommand="{Binding SelectedEvent}" IsVisible="{Binding IsError, Converter={StaticResource InverseBoolConverter}}">
+            <CollectionView x:Name="EventView" ItemsSource="{Binding Events}" SelectionMode="Single" SelectionChangedCommand="{Binding SelectedEvent}" SelectedItem="{Binding Event}" SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference EventView}}" IsVisible="{Binding IsError, Converter={StaticResource InverseBoolConverter}}">
                 <!--SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference ExerciseCollection}}"-->
                 <CollectionView.ItemTemplate>
                     <DataTemplate>

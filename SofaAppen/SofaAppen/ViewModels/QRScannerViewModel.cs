@@ -9,9 +9,13 @@ namespace SofaAppen.ViewModels
     {
         public Command QrScanCommand { get; set; }
         public IQRScanningService Scanner { get; }
+        public IApiClient Api { get; }
+
         public QRScannerViewModel()
         {
             Scanner = DependencyService.Get<IQRScanningService>();
+            Api = DependencyService.Get<IApiClient>();
+
 
             QrScanCommand = new Command(async () => { await InitQRScan(); });
 

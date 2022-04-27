@@ -1,4 +1,5 @@
 ﻿using SofaAppen.Models;
+using SofaAppen.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,9 +12,10 @@ namespace SofaAppen.ViewModels
     {
         private Animal _animal;
         public Animal Animal { get { return _animal; } set { _animal = value; OnPropertyChanged(); } }
+        public IApiClient Api { get; }
 
         public AnimalDetailViewModel() {
-
+            Api = DependencyService.Get<IApiClient>();
         }
         public void ApplyQueryAttributes(IDictionary<string, string> query)
         {

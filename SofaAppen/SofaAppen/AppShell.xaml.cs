@@ -11,16 +11,11 @@ namespace SofaAppen
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
-            Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
             Routing.RegisterRoute(nameof(AnimalsPage), typeof(AnimalsPage));
             Routing.RegisterRoute("animals/details", typeof(AnimalDetailPage));
+            Routing.RegisterRoute(nameof(EventsPage), typeof(AnimalsPage));
+            Routing.RegisterRoute("events/details", typeof(EventDetailPage));
 
-        }
-
-        private async void OnMenuItemClicked(object sender, EventArgs e)
-        {
-            await Shell.Current.GoToAsync("//LoginPage");
         }
     }
 }

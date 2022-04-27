@@ -22,9 +22,13 @@ namespace SofaAppen.ViewModels
 
         private bool _isError;
         public bool IsError { get { return _isError;  } set { _isError = value; OnPropertyChanged(); } }
+        public IApiClient Api { get; }
+
 
         public EventsViewModel()
         {
+            Api = DependencyService.Get<IApiClient>();
+
             _events = new List<Event>();
             IsError = false;
             Title = "Begivenheder";
@@ -39,7 +43,7 @@ namespace SofaAppen.ViewModels
 
         public async Task NavigateToDetailPage()
         {
-            await Shell.Current.GoToAsync($"events/details?animalId={Event.IdEvent}");
+            await Shell.Current.GoToAsync($"events/details?eventId={Event.IdEvent}");
         }
 
         private async Task GetEvents()

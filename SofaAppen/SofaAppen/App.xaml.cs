@@ -13,7 +13,6 @@ namespace SofaAppen
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             DependencyService.Register<ApiClient>();
             DependencyService.Register<QrScanningService>();
 

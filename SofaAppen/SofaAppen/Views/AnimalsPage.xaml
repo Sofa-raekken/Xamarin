@@ -1,7 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:Helpers="clr-namespace:SofaAppen.Helpers"
              x:Class="SofaAppen.Views.AnimalsPage">
+
+    <ContentPage.Resources>
+        <Helpers:InverseBoolConverter x:Key="InverseBoolConverter"/>
+        <Helpers:IndexToColorConverter x:Key="IndexToColorConverterGrid"
+                                          EvenColor="#74b694"
+                                          OddColor="#e9f4ef"/>
+
+        <Helpers:IndexToColorConverter x:Key="IndexToColorConverterText"
+                                          EvenColor="#0f403d"
+                                          OddColor="#74b694"/>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Animals!"
@@ -10,12 +22,13 @@
             <CollectionView x:Name="AnimalView" ItemsSource="{Binding Animals}" SelectionMode="Single" SelectedItem="{Binding Animal}" SelectionChangedCommand="{Binding ShowAnimal}" SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference AnimalView}}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame>
-                            <Label Text="{Binding Name}"></Label>
-                            <!--
+                        <Frame BackgroundColor="{Binding ., Converter={StaticResource IndexToColorConverterGrid},ConverterParameter={x:Reference AnimalView}}">
+
                             <StackLayout>
+                                <Label TextColor="{Binding ., Converter={StaticResource IndexToColorConverterText},ConverterParameter={x:Reference AnimalView}}" Text="{Binding Name}"></Label>
+
                             </StackLayout>
-                            -->
+
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

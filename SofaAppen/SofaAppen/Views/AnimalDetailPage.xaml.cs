@@ -16,6 +16,7 @@ namespace SofaAppen.Views
         public AnimalDetailPage()
         {
             InitializeComponent();
+            this.Title = "Information om dyret";
             this.BindingContext = new AnimalDetailViewModel();
         }
     }

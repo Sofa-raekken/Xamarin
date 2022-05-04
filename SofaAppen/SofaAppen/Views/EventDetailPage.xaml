@@ -4,11 +4,11 @@
              x:Class="SofaAppen.Views.EventDetailPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Event.Name}"
+            <Label TextColor="Black" Text="{Binding Event.Name}"
                 VerticalOptions="Start" 
                 HorizontalOptions="CenterAndExpand" Margin="0,20,0,30" FontSize="Title"/>
-            <Label Text="{Binding Event.Description}" HorizontalOptions="CenterAndExpand"/>
-            <Label Text="{Binding Event.Schedules[0].DateTime, StringFormat='{0:MMMM dd, yyyy}'}"/>
+            <Label TextColor="Black" Text="{Binding Event.Description}" HorizontalOptions="CenterAndExpand"/>
+            <Label TextColor="Black" Text="{Binding Event.Schedules[0].DateTime, StringFormat='{0:MMMM dd, yyyy}'}"/>
             
         </StackLayout>
     </ContentPage.Content>
